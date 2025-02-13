@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoStrata Projects - Strategic Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            line-height: 1.7;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Modern Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Enhanced Hero Section */
+        .hero {
+            height: 95vh;
+            background: linear-gradient(135deg, rgba(44,62,80,0.9) 0%, rgba(52,152,219,0.8) 100%), 
+                        url('images/project-hero-bg.jpg') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            color: var(--light);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--light);
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        /* Modern Services Section */
+        .services-section {
+            padding: 8rem 5%;
+            background: var(--light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 4rem auto 0;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 2rem;
+            filter: drop-shadow(0 5px 15px rgba(52,152,219,0.2));
+        }
+
+        /* Modern About Section */
+        .about-section {
+            padding: 8rem 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            background: linear-gradient(to right, #ffffff 50%, #f8f9fa 50%);
+        }
+
+        .about-image {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+            transform: rotate(-3deg);
+        }
+
+        /* Enhanced Contact Section */
+        .contact-section {
+            padding: 8rem 5%;
+            background: var(--primary);
+            color: white;
+            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+            margin-top: -5rem;
+        }
+
+        .contact-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1.2rem;
+            margin-bottom: 2rem;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            background: rgba(255,255,255,0.15);
+            box-shadow: 0 0 0 2px var(--secondary);
+        }
+
+        /* Modern Button */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            color: white;
+            padding: 1.4rem 3rem;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(52,152,219,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(52,152,219,0.3);
+        }
+
+        footer {
+            padding: 6rem 5%;
+            background: var(--dark);
+            color: white;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .about-section {
+                grid-template-columns: 1fr;
+                background: #ffffff;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1.5rem;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                max-width: 80%;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Solutions</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Transformative Project Leadership</h1>
+            <p>Strategic solutions for complex global challenges</p>
+            <a href="#contact" class="cta-button">Start Your Project</a>
+        </div>
+    </section>
+
+    <section class="services-section" id="services">
+        <h2 style="text-align: center; margin-bottom: 4rem; font-size: 2.5rem;">Our Expertise</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="images/planning-icon.svg" alt="Planning" class="service-icon">
+                <h3>Strategic Planning</h3>
+                <p>End-to-end project lifecycle management with precision execution</p>
+            </div>
+            <div class="service-card">
+                <img src="images/risk-icon.svg" alt="Risk Management" class="service-icon">
+                <h3>Enterprise Risk Management</h3>
+                <p>Advanced risk assessment and mitigation frameworks</p>
+            </div>
+            <div class="service-card">
+                <img src="images/consulting-icon.svg" alt="Consulting" class="service-icon">
+                <h3>Digital Transformation</h3>
+                <p>Technology-driven business innovation strategies</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <img src="images/team-collab.jpg" alt="Project Team" class="about-image">
+        <div>
+            <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Global Innovation Network</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8; color: #666;">
+                With 300+ industry experts across 30 countries, we deliver cutting-edge project solutions 
+                combining agile methodologies with AI-powered analytics. Our ISO-certified processes 
+                ensure measurable results and sustainable growth.
+            </p>
+            <div style="margin-top: 2rem;">
+                <a href="#contact" class="cta-button">Explore Our Work</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="contact-grid">
+            <div>
+                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Connect With Us</h2>
+                <div style="margin-bottom: 2rem;">
+                    <p>Email: <a href="mailto:contact@neostrataprojects.com" style="color: var(--secondary);">contact@neostrataprojects.com</a></p>
+                    <p>Phone: <a href="tel:+15551234567" style="color: var(--secondary);">+1 (555) 123-4567</a></p>
+                </div>
+                <div style="display: flex; gap: 1.5rem; margin-top: 3rem;">
+                    <a href="#" style="color: white; text-decoration: none; transition: all 0.3s ease;" class="social-link">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="#" style="color: white; text-decoration: none; transition: all 0.3s ease;" class="social-link">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <textarea rows="6" placeholder="Your Message" required></textarea>
+                <button type="submit" class="cta-button">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <p style="margin-bottom: 2rem; font-size: 1.1rem;">Driving excellence in global project management</p>
+            <div style="display: flex; gap: 2rem; justify-content: center; margin-bottom: 3rem;">
+                <a href="#" style="color: var(--secondary); text-decoration: none; transition: all 0.3s ease;" class="footer-link">Privacy Policy</a>
+                <a href="#" style="color: var(--secondary); text-decoration: none; transition: all 0.3s ease;" class="footer-link">Terms of Service</a>
+                <a href="#" style="color: var(--secondary); text-decoration: none; transition: all 0.3s ease;" class="footer-link">Careers</a>
+            </div>
+            <p style="opacity: 0.8;">&copy; 2023 NeoStrata Projects. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
