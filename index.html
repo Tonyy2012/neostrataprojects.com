@@ -28,7 +28,7 @@
             overflow-x: hidden;
         }
 
-        /* Professional Navigation */
+        /* Updated Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -57,7 +57,7 @@
             color: var(--secondary);
         }
 
-        /* Modern Hero Section */
+        /* Hero Section */
         .hero {
             padding: 8rem 5% 4rem;
             background: linear-gradient(135deg, rgba(26,54,93,0.9) 0%, rgba(45,156,219,0.9) 100%), 
@@ -116,7 +116,7 @@
             background: var(--secondary);
         }
 
-        /* Cards Grid */
+        /* Grid Layouts */
         .case-study-grid, .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -141,7 +141,7 @@
             border-left: 4px solid var(--secondary);
         }
 
-        /* Expertise Content */
+        /* Expertise Styling */
         .styled-list {
             list-style: none;
             margin: 2rem 0;
@@ -152,14 +152,14 @@
             border-bottom: 1px solid rgba(255,255,255,0.15);
             font-size: 0.95rem;
             line-height: 1.8;
+            position: relative;
         }
 
         .styled-list li::before {
             content: '▹';
             position: absolute;
-            left: 0;
+            left: -1.5rem;
             color: var(--secondary);
-            margin-left: -1.5rem;
         }
 
         /* Contact Banner */
@@ -172,67 +172,40 @@
             border-radius: 10px;
         }
 
-        .contact-banner h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-banner p {
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-
         /* Responsive Design */
         @media (max-width: 768px) {
             nav ul {
                 gap: 1.5rem;
                 flex-wrap: wrap;
             }
-
             .hero {
                 padding: 6rem 5% 3rem;
             }
-
             .hero h1 {
                 font-size: 2rem;
             }
-
             .section-title {
                 font-size: 1.6rem;
             }
-
-            .case-study-card, .service-card {
-                padding: 1.5rem;
-            }
-
-            .styled-list li {
-                font-size: 0.9rem;
-                padding: 1rem 0;
-            }
         }
-
-        @media (max-width: 480px) {
-            nav ul {
-                gap: 1rem;
-                justify-content: center;
-            }
-
-            nav a {
-                font-size: 0.9rem;
-            }
+        
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
 <body>
+    <!-- Updated Navigation -->
     <nav>
         <ul>
             <li><a href="#home">Home</a></li>
+            <li><a href="#value">Value</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#expertise">Expertise</a></li>
         </ul>
     </nav>
 
+    <!-- Home Section -->
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>Strategic Government Relations</h1>
@@ -240,7 +213,8 @@
         </div>
     </section>
 
-    <section class="section">
+    <!-- Value Section -->
+    <section class="section" id="value">
         <h2 class="section-title">Delivering value for our clients</h2>
         <div class="case-study-grid">
             <div class="case-study-card">
@@ -258,8 +232,9 @@
         </div>
     </section>
 
-    <section class="section section-dark">
-        <h2 class="section-title">Our Services</h2>
+    <!-- Services Section -->
+    <section class="section section-dark" id="services">
+        <h2 class="section-title">Our Service Offerings</h2>
         <div class="services-grid">
             <div class="service-card">
                 <h3>Government Relations</h3>
@@ -291,13 +266,9 @@
         </div>
     </section>
 
-    <div class="contact-banner">
-        <h2>Ready to Make an Impact?</h2>
-        <p>+1 437 775 4944 | +234 803 189 3488</p>
-    </div>
-
-    <section class="section">
-        <h2 class="section-title">Our Expertise</h2>
+    <!-- Expertise Section -->
+    <section class="section" id="expertise">
+        <h2 class="section-title">Core Expertise</h2>
         <ul class="styled-list">
             <li>Neo Strata Project brings the experience, strategic insight, and network of Nigeria’s top business and political professionals to deliver value to our clients.</li>
             <li>PUBLIC POLICY DEVELOPMENT & ADVOCACY- Clients around the country trust NSPL to deliver real, tangible value and results. We are not in the business of forwarding you government press releases, we are in the business of shaping government policy. At our core, we are a professional services consulting firm that focuses on solving problems and creating opportunities for our clients. Public policy making- process, Regulatory design, Development, Implementation and Review, are quality requirements for sustainable growth and development. We create the needed framework for decision makers both in the public and private sector to take informed decisions, and to ensure that the resources of our client is wisely used. We focus on providing our clients with the best advice on how to engage effectively in today’s challenging and crowded public policy marketplace.</li>
@@ -305,5 +276,27 @@
             <li>CONSULTANCY- Consulting Is more than giving advice, we facilitate learning by including members of your organization in the assignment's processes. Neo Strata Project works with national and state governments, local authorities, quasi-government agencies such as development funds and trade associations as well as government-owned companies to realize their economic and social goals. In-scope problem/ Opportunity statement analysis, Understanding requirements, Conducting data analysis, Presenting findings, Formulating plans, Organising training, Evaluating progress, and Staying ahead of competitor.</li>
         </ul>
     </section>
+
+    <!-- Contact Banner -->
+    <div class="contact-banner">
+        <h2>Ready to Make an Impact?</h2>
+        <p>+1 437 775 4944 | +234 803 189 3488</p>
+    </div>
+
+    <script>
+        // Smooth scroll functionality
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
