@@ -26,84 +26,42 @@
             line-height: 1.7;
             color: var(--dark);
             overflow-x: hidden;
-            background: var(--light);
         }
 
-        /* Navigation Bar */
-        nav {
-            background: var(--dark);
-            padding: 1rem 10%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: white;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--secondary);
-        }
-
-        /* Hero Section */
+        /* Modern Hero Section */
         .hero {
-            height: 90vh;
-            background: linear-gradient(135deg, rgba(26,54,93,0.9) 0%, rgba(45,156,219,0.9) 100%), url('media/image1.jpeg') center/cover;
+            height: 80vh;
+            background: linear-gradient(135deg, rgba(26,54,93,0.9) 0%, rgba(45,156,219,0.9) 100%), 
+                        url('media/image1.jpeg') center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             padding: 2rem;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
         }
 
         .hero-content {
             max-width: 800px;
             animation: fadeInUp 1s ease;
-            color: white;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 4rem;
+            color: white;
+            margin-bottom: 1.55rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .hero p {
             font-size: 1.5rem;
-            margin-bottom: 2rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2.5rem;
         }
 
-        .cta-button {
-            padding: 1rem 2rem;
-            background: var(--secondary);
-            color: var(--dark);
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: background 0.3s;
-        }
-
-        .cta-button:hover {
-            background: #e5b635;
-        }
-
-        /* Sections */
+        /* Section Styling */
         .section {
             padding: 6rem 10%;
-            text-align: center;
         }
 
         .section-dark {
@@ -113,6 +71,7 @@
 
         .section-title {
             font-size: 2.8rem;
+            text-align: center;
             margin-bottom: 4rem;
             position: relative;
             padding-bottom: 1rem;
@@ -129,12 +88,76 @@
             background: var(--secondary);
         }
 
-        /* Contact Section */
+        /* Case Study Grid */
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin: 4rem 0;
+        }
+
+        .case-study-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .case-study-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin: 4rem 0;
+        }
+
+        .service-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 2px solid var(--secondary);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+        }
+
+        /* List Styling */
+        .styled-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .styled-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .styled-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+        }
+
+        /* Contact Banner */
         .contact-banner {
             background: var(--secondary);
             color: var(--dark);
             text-align: center;
             padding: 4rem 10%;
+            margin: 6rem 0;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(242,201,76,0.3);
         }
@@ -149,15 +172,6 @@
             font-weight: 700;
         }
 
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            text-align: center;
-            padding: 2rem 10%;
-            font-size: 1rem;
-        }
-
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -170,46 +184,118 @@
             }
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                text-align: center;
-            }
             .hero h1 {
                 font-size: 2.5rem;
             }
+
             .section {
                 padding: 4rem 5%;
+            }
+
+            .contact-banner p {
+                font-size: 1.4rem;
             }
         }
     </style>
 </head>
 <body>
-    <nav>
-        <h2 style="color:white;">Neo Strata</h2>
-        <ul>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#case-studies">Case Studies</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    
     <section class="hero">
         <div class="hero-content">
             <h1>Strategic Government Relations</h1>
-            <p>Neo Strata Projects is a full-service consulting firm specializing in federal and state government relations, public affairs, and strategic communications.</p>
-            <a href="#contact" class="cta-button">Get in Touch</a>
+            <p>INTRODUCTION: Neo Strata Projects is a full-service consulting firm specializing in federal and state government relations, public affairs, strategic communications, crisis management and advisory services.
+</p>
         </div>
     </section>
-    
-    <div class="contact-banner" id="contact">
+
+    <section class="section">
+        <h2 class="section-title">Delivering value for our clients</h2>
+        <div class="case-study-grid">
+            <div class="case-study-card">
+                <h3>Government Regulations</h3>
+                <p>By pairing government relations outreach with a highly targeted digital advocacy campaign, Neo Strata successfully engaged the government to deploy COVID testing across pharmacies in Lagos.</p>
+            </div>
+            <div class="case-study-card">
+                <h3>Contract Negotiation</h3>
+                <p>NSPL secured a contract for a Nigerian healthcare company to scale across the country.</p>
+            </div>
+            <div class="case-study-card">
+                <h3>PPE Manufacturing</h3>
+                <p>Neo Strata was hired by a Nigerian manufacturer of personal protective equipment to win a long-term government contract.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Government Relations</h3>
+                <ul class="styled-list">
+                    <li>Legislative Strategies</li>
+                    <li>Political Strategy</li>
+                    <li>Regulatory Risk Management</li>
+                    <li>Policymaker Engagement</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3>Public Affairs</h3>
+                <ul class="styled-list">
+                    <li>Coalition Management</li>
+                    <li>Stakeholder Engagement</li>
+                    <li>Issue Resolution Campaigns</li>
+                    <li>Partnership Development</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3>Strategic Communications</h3>
+                <ul class="styled-list">
+                    <li>Crisis Management</li>
+                    <li>Brand Reputation</li>
+                    <li>Media Monitoring</li>
+                    <li>CSR Communications</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <div class="contact-banner">
         <h2>Ready to Make an Impact?</h2>
         <p>+1 437 775 4944 | +234 803 189 3488</p>
     </div>
 
-    <footer>
-        &copy; 2025 Neo Strata Projects | All Rights Reserved
-    </footer>
+    <section class="section">
+        <h2 class="section-title">Our Expertise</h2>
+        <ul class="styled-list">
+            <li>Neo Strata Project brings the experience,
+strategic insight, and network of
+Nigeria’s top business and political
+professionals to deliver value to our
+clients.</li>
+            <li>PUBLIC POLICY DEVELOPMENT & ADVOCACY- Clients around the country trust NSPL to deliver real, tangible value and results. We are not in
+the business of forwarding you government press releases, we are in the business of shaping
+government policy.
+At our core, we are a professional services consulting firm that focuses on solving problems and
+creating opportunities for our clients.
+Public policy making- process, Regulatory design, Development, Implementation and Review,
+are quality requirements for sustainable growth and development.
+We create the needed framework for decision makers both in the public and private sector to
+take informed decisions, and to ensure that the resources of our client is wisely used.
+
+We focus on providing our clients with the best advice on how to engage effectively in today’s
+challenging and crowded public policy marketplace.</li>
+            <li>STRATEGIC COMMUNICATION, ADVOCACY and CRISIS MANAGEMENT- Strategic advisors with real-world experience. Neo Strata Advocacy actively represent dozens
+of companies, public and private individuals, NGOs, and brands that seek to influence policy in
+Federal, State and Local government in Nigeria.</li>
+            <li>CONSULTANCY- Consulting Is more than giving advice, we facilitate learning by including members of your
+organization in the assignment's processes. 
+Neo Strata Project works with national and state governments, local authorities, quasi-
+government agencies such as development funds and trade associations as well as government-
+owned companies to realize their economic and social goals.
+In-scope problem/ Opportunity statement analysis, Understanding requirements, Conducting
+data analysis, Presenting findings, Formulating plans, Organising training, Evaluating progress,
+and Staying ahead of competitor.</li>
+        </ul>
+    </section>
 </body>
 </html>
